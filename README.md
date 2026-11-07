@@ -26,3 +26,14 @@ O serviço cadastra eventos, lista os eventos que ainda não aconteceram e regis
 ## Observações
 - A porta foi alterada para 8081 (no vídeo é 8080).
 - O microsserviço de e-mail (AWS SES) deve rodar em http://localhost:8090.
+
+## Demonstração
+
+Fluxo completo testado localmente: o serviço de eventos (porta 8081) registra a inscrição e chama, via OpenFeign, o serviço de e-mail (porta 8090), que envia a confirmação pelo Amazon SES.
+
+1. Criação de um evento com data futura
+2. Inscrição do participante no evento
+3. E-mail de confirmação recebido:
+  <img width="700" alt="Confirmação de Inscrição" src="https://github.com/user-attachments/assets/69561d58-1d3c-4530-a601-7d49d579cd37" />
+  - O microsserviço de e-mail (AWS SES) é o projeto desafio-backend-uber, reaproveitado da videoaula, e deve rodar em http://localhost:8090.
+
